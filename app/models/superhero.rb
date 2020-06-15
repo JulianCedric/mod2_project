@@ -34,10 +34,12 @@ class Superhero < ApplicationRecord
         name = hero_name
         info = URI.parse("https://superheroapi.com/api.php/10100168794062182/search/#{name}")
         response = Net::HTTP.get_response(info)
-        JSON.parse(response.body)
-    end
+        api_hero_information = JSON.parse(response.body)
+        # byebug 
+    # end
 
-    def self.superhero_search(api_hero_information)
+    # def self.superhero_search(api_hero_information)
+        # byebug
         super_search = [] 
         price_attributes = []
         api_hero_information["results"].each do |hero_info|
@@ -62,14 +64,20 @@ class Superhero < ApplicationRecord
                 alignment = hero_info["biography"]["alignment"]
                 img_url = hero_info["image"]["url"]
                 price = Superhero.price(price_attributes)
+                alter_ego = hero_info["biography"]["aliases"][0]
                 if alignment == "bad"
                     price = price * 2
                 end
-                new_sup = Superhero.create(name: name, intelligence: intelligence, strength: strength, speed: speed, durability: durability, power: power, combat: combat, alignment: alignment, img_url: img_url, price: price, website_id: website_id)
+                new_sup = Superhero.create(alter_ego: alter_ego, name: name, intelligence: intelligence, strength: strength, speed: speed, durability: durability, power: power, combat: combat, alignment: alignment, img_url: img_url, price: price, website_id: website_id)
                 super_search << new_sup
             end
         end
         super_search
     end
+
+    def name_and_alter
+        "#{self.name} - Alias: #{self.alter_ego}"
+    end
+
 
 end

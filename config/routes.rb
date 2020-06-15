@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  post '/superheros', to: 'superheros#search', as: 'searches'
+  # get '/search', to: 's'
+
   resources :superheros 
   resources :users 
   resources :appointments 
