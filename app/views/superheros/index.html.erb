@@ -1,15 +1,11 @@
 <h1>Search by Superhero Name:</h1>
 
-<%= form_tag searches_path, method: :post do %>
+<%= form_tag superheros_path, method: :post do %>
 <p> 
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search" %>
 </p>
 <% end %>
-
-<!-- <% @found_superheros.each do |superhero| %>
-    <%= link_to superhero.name_and_alter, superhero_path(superhero) %><br>
-<% end %>  -->
 
 <h1>List of Searched Superheroes</h1>
 

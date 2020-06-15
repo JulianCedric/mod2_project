@@ -11,7 +11,7 @@ class SuperherosController < ApplicationController
     # byebug
     @found_superheros = Superhero.search_api(params[:search])
     # @superheros = Superhero.superhero_search(response)
-    redirect_to searches_path
+    render '/searches/search' 
   end
 
 private 
