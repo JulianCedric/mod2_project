@@ -1,0 +1,13 @@
+<h1>Superhero Page</h1>
+
+Name: <%= @superhero.name %><br>
+Hourly Rate: <%= @superhero.price %><br>
+Abilities: <br>
+Intelligence: <%= @superhero.intelligence %><br>
+Strength: <%= @superhero.strength %><br>
+Speed: <%= @superhero.speed %><br>
+Durability: <%= @superhero.durability %><br>
+Power: <%= @superhero.power %><br>
+Combat: <%= @superhero.combat %><br>
+This Superhero is currently listed as a <%= @superhero.alignment %> superhero.<br>
+<%= image_tag("#{@superhero.img_url}") %>

@@ -65,7 +65,7 @@ class Superhero < ApplicationRecord
                 if alignment == "bad"
                     price = price * 2
                 end
-                new_sup = Superhero.create(name: name, intelligence: intelligence, strength: strength, speed: speed, durability: durability, power: power, combat: combat, alignment: alignment, img_url: img_url, price: price, website_id: wesite_id)
+                new_sup = Superhero.create(name: name, intelligence: intelligence, strength: strength, speed: speed, durability: durability, power: power, combat: combat, alignment: alignment, img_url: img_url, price: price, website_id: website_id)
                 super_search << new_sup
             end
         end

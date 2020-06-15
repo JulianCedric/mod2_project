@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  resources :superheros 
+  resources :users 
+  resources :appointments 
+
   get 'appointments/index'
   get 'superheros/index'
   get 'users/index'
