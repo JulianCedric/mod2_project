@@ -76,17 +76,21 @@
       <ul>
         <li><a class="active" href='/superheros'>Home</a></li>
         <!-- <li><a class="active" href='/search'>Search for Superheroes</a></li> -->
-        <li><a href='/superheros'>Search for Superheroes</a></li>
+        <!-- <li><a href='/superheros'>Search for Superheroes</a></li> -->
+        <li><%= link_to "Search for Superheroes", superheros_path %></li>
         <!-- <li><a class="active" href='/appointments'>Appointments</a></li> -->
         <li><a href='/appointments/new'>Appointments</a></li>
       </ul>
     </div>
 
-    <% if logged_in? %>
-    <%= button_to 'Logout', logout_path, method: :delete %>
-  <% else %>
-    <%= button_to 'Login', login_path, method: :get %>
-  <% end %>
+    <% if @current_user %>
+    <li class="right">Welcome <%= @current_user.name %></li>
+      <%= button_to 'Logout', "/sessions/#{@current_user.id}", method: :delete %>
+    <% else %>
+    <li class="right"><%= link_to "Sign Up", new_user_path %></li>
+      <%= button_to 'Login', new_session_path, method: :get %>
+    <% end %> 
+
 
 
     <%= yield %>

@@ -12,3 +12,26 @@ Power: <%= @superhero.power %><br>
 Combat: <%= @superhero.combat %><br>
 This Superhero is currently listed as a <%= @superhero.alignment %> superhero.<br>
 <%= image_tag("#{@superhero.img_url}") %>
+
+<%= form_for @appointment do |f| %>
+    <%= f.label :location %>
+    <%= f.select :location, ["DC", "NY", "SF"] %><br>
+
+    <%= f.label :start_time %>
+    <%= f.select :start_time, [1,2,3,4,5,6,7,8,9,10,11,12] %><br>
+    <%= f.select :start_ampm, ["AM", "PM"] %>
+    <%= f.select :start_tz, ["EST", "CST", "PST"] %>
+
+    <%= f.select :end_time, [1,2,3,4,5,6,7,8,9,10,11,12] %><br>
+    <%= f.select :end_ampm, ["AM", "PM"] %>
+    <%= f.select :end_tz, ["EST", "CST", "PST"] %>
+
+    <%= f.label :description_of_service %>
+    <%= f.text_field :description_of_service %>
+
+    <%= f.hidden_field :customer_id, @current_user.id %>
+    <%= f.hidden_field :superhero_id, @superhero.id %> 
+
+    <%= f.submit %>
+
+<% end %> 

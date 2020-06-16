@@ -1,20 +1,18 @@
 class ApplicationController < ActionController::Base
-    before_action :authorized
-    helper_method :current_user, :logged_in?
+    # before_action :authorized
+    # before_action :current_user 
     
     def current_user
-      User.find_by(id: session[:user_id])
-    end
-    
-    def logged_in?
-      !!current_user
+      @current_user = User.find_by(id: session[:user_id])
     end
     
     def authorized
-      unless logged_in?
+        byebug
+        if @current_user 
+        else
         flash[:notice] = "You must log into your account to see this page"
-        redirect_to login_path
+        redirect_to login_path 
       end
     end
-    
+
 end

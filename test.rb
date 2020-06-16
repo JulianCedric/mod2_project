@@ -1,3 +1,10 @@
+# 2020.06.16
+
+# 
+
+
+# 2020.06.15
+
 # Additional Notes: 
     # Basic Nav Bar & Footer added to app/views/layout/application.html.erb
     # Link for "Search for Superheroes" not working - no method error appears 

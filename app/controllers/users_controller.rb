@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authorized, only: [:new, :create, :show]
+  # skip_before_action :authorized, only: [:new, :create, :edit]
 
     def show
       @user = User.find(params[:id])
@@ -10,7 +10,6 @@ class UsersController < ApplicationController
     end
 
     def create
-      # byebug 
       user = User.create(user_params) 
       if user.valid?
         session[:user_id] = user.id
@@ -26,7 +25,7 @@ class UsersController < ApplicationController
     end
 
     def edit
-      @user = User.find(params[:id])
+      @user = User.find(params[:id]) 
     end
 
     def upgrade
@@ -40,6 +39,7 @@ class UsersController < ApplicationController
           redirect_to edit_user_path(user)
         end
     end
+
     def destroy
         user = User.find(params[:id])
         user.destroy

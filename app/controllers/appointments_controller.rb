@@ -1,4 +1,10 @@
 class AppointmentsController < ApplicationController
-  def index
+  def new
+    @appointment = Appointment.new 
   end
+
+  def create 
+
+  end
+
 end

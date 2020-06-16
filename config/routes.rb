@@ -6,19 +6,20 @@ Rails.application.routes.draw do
 
   # get '/superheros', to: 'superheros#result', as: 'results_page'
 
-  get '/superheros/search', to: 
-
   resources :superheros 
 
   resources :users
-  get '/login', to: 'sessions#new', as: :login
-  post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy', as: :logout
+  # get '/login', to: 'sessions#new', as: 'login'
+  # post '/login', to: 'sessions#create'
+  # delete '/logout', to: 'sessions#destroy', as: :logout 
 
   resources :appointments 
+  resources :sessions 
+
+  post '/sessions/new', to: 'sessions#create'
 
   # get 'appointments/index'
   # get 'superheros/index'
   # get 'users/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-end
+end 
