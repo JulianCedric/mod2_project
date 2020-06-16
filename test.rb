@@ -1,3 +1,9 @@
+# Additional Notes: 
+    # Basic Nav Bar & Footer added to app/views/layout/application.html.erb"
+
+# Original Copy: 
+    # app/views/layouts/application.html.erb
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,18 +16,6 @@
   </head>
 
   <body>
-
-    <div class="navigation">
-      <ul>
-        <a href='/superheros'>Home</a>
-        <a href='/search'>Search for Superheroes</a>
-      </ul>
-    </div>
-
     <%= yield %>
-
-    <div class="footer">
-      <p>Reserve Your Favorite Superheroes Here Today!</p>
-    </div>
   </body>
 </html>
