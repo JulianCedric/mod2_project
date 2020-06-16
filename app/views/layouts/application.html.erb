@@ -9,9 +9,16 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   <style>
+    .header {
+      background-color: deepskyblue;
+      color: white;
+      padding: 1px;
+      border: 1px solid white;
+      text-align: center;
+    }
 
     body {
-      color: blue;
+      color: black;
     }
 
     ul {
@@ -19,14 +26,31 @@
       border: 1px solid white;
       margin: 0;
       padding: 0;
+      overflow: hidden;
     }
+    
+    li {
+      float: left;
+    }
+
     li a {
       display: block;
       width: 160px;
       height: 25px;
-      background-color: dodgerblue;
+      background-color: deepskyblue;
+      border: 1px solid white;
       color: white;
       text-align: justify;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover {
+      background-color: deepskyblue;
+    }
+
+    .active {
+      background-color: cornflowerblue;
     }
     
   </style>
@@ -35,9 +59,13 @@
 
   <body>
 
+    <div class="header"> 
+      <h1>Book a Superhero</h1>
+    </div>
+
     <div class="nav">
       <ul>
-        <li><a href='/superheros'>Home</a></li>
+        <li><a class="active" href='/superheros'>Home</a></li>
         <li><a href='/search'>Search for Superheroes</a></li>
       </ul>
     </div>
