@@ -1,3 +1,5 @@
+<br>
+
 <h1>Search by Superhero Name:</h1>
 
 <%= form_tag superheros_path, method: :post do %>
@@ -7,8 +9,14 @@
 </p>
 <% end %>
 
-<h1>List of Searched Superheroes</h1>
+<br>
+
+<h1>List of Searched Superheroes:</h1>
 
 <% @superheros.each do |superhero| %>
     <%= link_to superhero.name_and_alter, superhero_path(superhero) %><br>
 <% end %>
+
+<br>
+<br>
+<br>
