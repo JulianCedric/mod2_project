@@ -1,20 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mod2App</title>
+    <title>Book a Superhero</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <style>
+
+    body {
+      color: blue;
+    }
+
+    ul {
+      list-style-type: none;
+      border: 1px solid white;
+      margin: 0;
+      padding: 0;
+    }
+    li a {
+      display: block;
+      width: 160px;
+      height: 25px;
+      background-color: dodgerblue;
+      color: white;
+      text-align: justify;
+    }
+    
+  </style>
+
   </head>
 
   <body>
 
-    <div class="navigation">
+    <div class="nav">
       <ul>
-        <a href='/superheros'>Home</a>
-        <a href='/search'>Search for Superheroes</a>
+        <li><a href='/superheros'>Home</a></li>
+        <li><a href='/search'>Search for Superheroes</a></li>
       </ul>
     </div>
 

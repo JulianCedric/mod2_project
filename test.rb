@@ -1,5 +1,6 @@
 # Additional Notes: 
-    # Basic Nav Bar & Footer added to app/views/layout/application.html.erb"
+    # Basic Nav Bar & Footer added to app/views/layout/application.html.erb
+    # Link for "Search for Superheroes" not working - no method error appears 
 
 # Original Copy: 
     # app/views/layouts/application.html.erb
@@ -7,7 +8,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mod2App</title>
+    <title>Book Superhero</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
