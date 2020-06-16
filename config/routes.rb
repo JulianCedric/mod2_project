@@ -2,10 +2,19 @@ Rails.application.routes.draw do
 
   post '/superheros', to: 'superheros#search'
 
-  get '/search', to: 'searches#search', as: 'search_page'
+  # get '/search', to: 'searches#search', as: 'search_page'
+
+  # get '/superheros', to: 'superheros#result', as: 'results_page'
+
+  get '/superheros/search', to: 
 
   resources :superheros 
-  resources :users 
+
+  resources :users
+  get '/login', to: 'sessions#new', as: :login
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy', as: :logout
+
   resources :appointments 
 
   # get 'appointments/index'

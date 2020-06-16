@@ -11,7 +11,9 @@ class SuperherosController < ApplicationController
     # byebug
     @found_superheros = Superhero.search_api(params[:search])
     # @superheros = Superhero.superhero_search(response)
-    render '/searches/search' 
+  end
+
+  def result 
   end
 
 private 

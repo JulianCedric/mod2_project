@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Book Superhero</title>
+    <title>Mod2App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 

@@ -1,0 +1,32 @@
+<% if @user.is_hero == true %>
+    <h1>Hero Page</h1>
+<% else %>
+    <h1>User Page</h1>
+<% end %> 
+
+<h2>Username: <%= @user.username %></h2>
+<h2>First Name: <%= @user.first_name %></h2>
+<h2>Last Name: <%= @user.last_name %></h2>
+<h2>Location: <%= @user.location %></h2>
+
+<% if @user.is_hero == true %>
+
+    Hero Name: <%= @user.name %><br>
+
+    Hourly Rate: <%= @user.price %><br>
+
+    Abilities: <br>
+        Intelligence: <%= @user.intelligence %><br>
+        Strength: <%= @user.strength %><br>
+        Speed: <%= @user.speed %><br>
+        Durability: <%= @user.durability %><br>
+        Power: <%= @user.power %><br>
+        Combat: <%= @user.combat %><br>
+        This Hero is currently listed as a <%= @user.alignment %> hero.<br>
+    
+    <% if @user.img_url != nil %>
+        <%= image_tag("#{@user.img_url}") %>
+    <% end %> 
+<% end %>
+
+<%= link_to 'Edit Your Profile', edit_user_path(@user) %>

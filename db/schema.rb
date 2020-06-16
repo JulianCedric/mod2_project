@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_15_214055) do
+ActiveRecord::Schema.define(version: 2020_06_16_154012) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer "user_id"
@@ -43,13 +43,22 @@ ActiveRecord::Schema.define(version: 2020_06_15_214055) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
     t.string "first_name"
     t.string "last_name"
     t.string "location"
-    t.boolean "is_hero?"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_hero", default: false
+    t.string "name"
+    t.integer "intelligence", default: 0
+    t.integer "strength", default: 0
+    t.integer "speed", default: 0
+    t.integer "durability", default: 0
+    t.integer "power", default: 0
+    t.integer "combat", default: 0
+    t.integer "alignment"
+    t.string "img_url"
+    t.integer "price", default: 0
+    t.boolean "is_premium"
   end
 
 end
