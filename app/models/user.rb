@@ -33,4 +33,21 @@ class User < ApplicationRecord
         y
     end
 
+    def self.search(search)   
+        if search
+            names = User.where(name: search, is_hero: true)
+            if names.present? == true
+                User.where(name: search, is_hero: true)
+            else 
+                User.all.select do |us|
+                    us.is_hero == true   
+                end
+            end
+        else
+            User.all.select do |us|
+                us.is_hero == true   
+            end
+        end
+    end
+
 end

@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_224811) do
+ActiveRecord::Schema.define(version: 2020_06_17_070349) do
 
   create_table "appointments", force: :cascade do |t|
-    t.string "day"
     t.time "start_time"
     t.time "end_time"
     t.string "location"
@@ -21,6 +20,22 @@ ActiveRecord::Schema.define(version: 2020_06_16_224811) do
     t.integer "customer_id"
     t.integer "hrs_id"
     t.integer "superhero_id"
+    t.string "start_ampm"
+    t.string "end_ampm"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.integer "minimum_price"
+    t.integer "maximum_price"
+    t.integer "minimum_intelligence"
+    t.integer "minimum_strength"
+    t.integer "minimum_speed"
+    t.integer "minimum_durability"
+    t.integer "minimum_power"
+    t.integer "minimum_combat"
+    t.string "location"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "superheros", force: :cascade do |t|
