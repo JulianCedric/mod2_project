@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SuperHire</title>
+    <title>Aim higher. SuperHire</title> 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,11 +10,10 @@
 
   <style>
     
-
     body {
       background-image: url("https://wallup.net/wp-content/uploads/2018/03/20/373404-The_Avengers-minimalism-blue.jpg");
       background-repeat: no-repeat;
-      background-position: right top;
+      background-position: center;
       background-size: cover;
       margin-top: 0px;
       color: white;
@@ -22,11 +21,11 @@
 
     ul {
       list-style-type: none;
-      border: 0px solid white;
-      margin: 0;
-      padding: 0;
+      width: 100%;
+      left: 0;
+      right: 0;
       overflow: hidden;
-      background-color: deepskyblue;
+      background-color: dodgerblue;
     }
     
     li {
@@ -38,7 +37,7 @@
       display: block;
       width: 100px;
       height: 25px;
-      background-color: deepskyblue;
+      background-color: dodgerblue;
       color: white;
       text-align: center;
       padding: 14px 16px;
@@ -46,19 +45,19 @@
     }
 
     li a:hover {
-      background-color: deepskyblue;
+      background-color: dodgerblue;
     }
 
-    .active {
-      background-color: cornflowerblue;
-    }
+    <!-- .active { -->
+      <!-- background-color: cornflowerblue; -->
+    <!-- } -->
 
     .footer {
-      background-color: deepskyblue;
+      background-color: dodgerblue;
       color: white;
       display: block;
       padding: 0px;
-      border: 1px solid white;
+      border: 0px solid white;
       position: fixed;
       left: 0;
       right: 0;
@@ -77,14 +76,16 @@
 
     <div class="nav">
       <ul>
-        <li><a class="active" href='/superheros'>Home</a></li>
+        <!-- <li><a class="active" href='/superheros'>Home</a></li> -->
+        <li><a href='/superheros'>Home</a></li>
+
         <!-- <li><a class="active" href='/search'>Search for Superheroes</a></li> -->
         <!-- <li><a href='/superheros'>Search for Superheroes</a></li> -->
         <li><%= link_to "Search for Superheroes", superheros_path %></li>
         <!-- <li><a class="active" href='/appointments'>Appointments</a></li> -->
         <li><a href='/appointments/new'>Appointments</a></li>
         <% if @current_user %>
-          <li class="right">Welcome <%= @current_user.name %></li>
+          <li class="right">Welcome<%= @current_user.name %></li>
           <%= button_to 'Logout', "/sessions/#{@current_user.id}", method: :delete %>
         <% else %>
           <li class="right"><%= link_to "Sign Up", new_user_path %></li>
