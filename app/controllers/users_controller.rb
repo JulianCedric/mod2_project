@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # skip_before_action :authorized, only: [:new, :create, :edit]
+  skip_before_action :authorized, only: [:new, :create, :show]
 
     def index 
       @users = User.search(params[:search])

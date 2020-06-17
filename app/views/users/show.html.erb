@@ -80,7 +80,7 @@
         <%= f.label :description_of_service %>
         <%= f.select :description_of_service, ["Protection", "Entertainment", "Chores", "Travel", "Murder"] %>
 
-        <%= f.hidden_field :customer_id, @current_user.id %>
+        <%= f.hidden_field :customer_id, :value => @current_user.id %>
         <%= f.hidden_field :hrs_id, :value => @user.id %> 
 
         <%= f.submit %>
