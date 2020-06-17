@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Book a Superhero</title>
+    <title>Aim higher. SuperHire</title> 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,25 +9,23 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   <style>
-    .header {
-      background-color: deepskyblue;
-      color: white;
-      padding: 1px;
-      border: 1px solid white;
-      text-align: center;
-    }
-
+    
     body {
-      color: black;
+      background-image: url("https://wallup.net/wp-content/uploads/2018/03/20/373404-The_Avengers-minimalism-blue.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      margin-top: 0px;
+      color: white;
     }
 
     ul {
       list-style-type: none;
-      border: 0px solid white;
-      margin: 0;
-      padding: 0;
+      width: 100%;
+      left: 0;
+      right: 0;
       overflow: hidden;
-      background-color: deepskyblue;
+      background-color: dodgerblue;
     }
     
     li {
@@ -37,9 +35,9 @@
 
     li a {
       display: block;
-      width: 160px;
+      width: 100px;
       height: 25px;
-      background-color: deepskyblue;
+      background-color: dodgerblue;
       color: white;
       text-align: center;
       padding: 14px 16px;
@@ -47,18 +45,24 @@
     }
 
     li a:hover {
-      background-color: deepskyblue;
+      background-color: dodgerblue;
     }
 
-    .active {
-      background-color: cornflowerblue;
-    }
+    <!-- .active { -->
+      <!-- background-color: cornflowerblue; -->
+    <!-- } -->
 
     .footer {
-      background-color: deepskyblue;
+      background-color: dodgerblue;
       color: white;
-      padding: 1px;
-      border: 1px solid white;
+      display: block;
+      padding: 0px;
+      border: 0px solid white;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
       text-align: center;
     }
     
@@ -68,35 +72,32 @@
 
   <body>
 
-    <div class="header"> 
-      <h1>Book a Superhero</h1>
-    </div>
+
 
     <div class="nav">
       <ul>
-        <li><a class="active" href='/superheros'>Home</a></li>
+        <!-- <li><a class="active" href='/superheros'>Home</a></li> -->
+        <li><a href='/superheros'>Home</a></li>
+
         <!-- <li><a class="active" href='/search'>Search for Superheroes</a></li> -->
         <!-- <li><a href='/superheros'>Search for Superheroes</a></li> -->
         <li><%= link_to "Search for Superheroes", superheros_path %></li>
         <!-- <li><a class="active" href='/appointments'>Appointments</a></li> -->
         <li><a href='/appointments/new'>Appointments</a></li>
+        <% if @current_user %>
+          <li class="right">Welcome<%= @current_user.name %></li>
+          <%= button_to 'Logout', "/sessions/#{@current_user.id}", method: :delete %>
+        <% else %>
+          <li class="right"><%= link_to "Sign Up", new_user_path %></li>
+          <li class="right"><%= link_to 'Login', new_session_path, method: :get %></li>
+        <% end %>
       </ul>
     </div>
 
-    <% if @current_user %>
-    <li class="right">Welcome <%= @current_user.name %></li>
-      <%= button_to 'Logout', "/sessions/#{@current_user.id}", method: :delete %>
-    <% else %>
-    <li class="right"><%= link_to "Sign Up", new_user_path %></li>
-      <%= button_to 'Login', new_session_path, method: :get %>
-    <% end %> 
-
-
-
-    <%= yield %>
+<%= yield %>
 
     <div class="footer">
-      <p>Reserve Your Favorite Superheroes Here Today!</p>
+      <h1>Aim higher. <i>SUPER</i> Hire.</h1>
     </div>
   </body>
 </html>
