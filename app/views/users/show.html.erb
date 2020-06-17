@@ -4,6 +4,10 @@
     <h1>User Page</h1>
 <% end %> 
 
+<% if @user.is_premium == false %>
+    <p></p>
+<% end %> 
+
 <h2>Username: <%= @user.username %></h2>
 <h2>First Name: <%= @user.first_name %></h2>
 <h2>Last Name: <%= @user.last_name %></h2>
@@ -30,3 +34,57 @@
 <% end %>
 
 <%= link_to 'Edit Your Profile', edit_user_path(@user) %>
+
+<% if @user.hero_appointments.any? %>  
+    List of booked appointments as a hero: 
+    <% @user.hero_appointments.each do |appt| %>
+        <% cust = User.find_by(id: appt.customer_id) %> 
+        From: <%= appt.start_time %> <%= appt.start_ampm %> To: <%= appt.end_time %> <%= appt.end_ampm %> At: <%= appt.location %><br>
+        For: <%= cust.first_name %> <%= cust.last_name %>
+        Services: <%= appt.description_of_service %>
+    <% end %>
+<% else %> 
+    This user has yet to book any appointments as a hero. 
+<% end %>
+
+
+<% if @user.customer_appointments.any? %>  
+    List of booked appointments as a customer: 
+    <% @user.customer_appointments.each do |appt| %>
+        <% if Superhero.find_by(id: appt.superhero_id) %>  
+            <% provider = Superhero.find_by(id: appt.superhero_id) %>  
+        <% elsif User.find_by(id: appt.hrs_id) %> 
+            <% provider = User.find_by(id: appt.hrs_id) %> 
+        <% end %>
+            From: <%= appt.start_time %> <%= appt.start_ampm %> To: <%= appt.end_time %> <%= appt.end_ampm %> At: <%= appt.location %><br>
+            Hero: <%= provider.name %>
+            Services: <%= appt.description_of_service %>
+    <% end %>
+<% else %> 
+    This user has yet to book any appointments as a customer. 
+<% end %>
+
+<% if @user.is_hero == true %>
+
+    <%= form_for @appointment do |f| %>
+        <%= f.label :location %>
+        <%= f.select :location, ["DC", "NY"] %><br>
+
+        <%= f.label :start_time %>
+        <%= f.select :start_time, [1,2,3,4,5,6,7,8,9,10,11,12] %><br>
+        <%= f.select :start_ampm, ["AM", "PM"] %>
+
+        <%= f.select :end_time, [1,2,3,4,5,6,7,8,9,10,11,12] %><br>
+        <%= f.select :end_ampm, ["AM", "PM"] %>
+
+        <%= f.label :description_of_service %>
+        <%= f.select :description_of_service, ["Protection", "Entertainment", "Chores", "Travel", "Murder"] %>
+
+        <%= f.hidden_field :customer_id, @current_user.id %>
+        <%= f.hidden_field :hrs_id, :value => @user.id %> 
+
+        <%= f.submit %>
+
+    <% end %> 
+
+<% end %>

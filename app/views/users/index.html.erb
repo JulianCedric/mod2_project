@@ -1,2 +1,19 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1>Search by Hero Name:</h1>
+
+<%= form_tag users_path, method: :post do %>
+<p> 
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+</p>
+<% end %>
+
+
+<% if @users.any? %>
+    <h1>List of All Available Heroes:</h1>
+    <% @users.each do |us| %>
+        <%= link_to us.name, user_path(us) %><br> 
+    <% end %> 
+<% else %> 
+    <h1>There are currently no Heroes listed.</h1>
+    <%= link_to "Search Superheroes", superheros_path %>
+<% end %>

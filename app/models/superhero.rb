@@ -76,5 +76,14 @@ class Superhero < ApplicationRecord
         "#{self.name} - Alias: #{self.alter_ego}"
     end
 
+    def superhero_appointments 
+        x = Appointment.all.select do |appt|
+            appt.superhero_id == self.id
+        end
+        y = x.sort do |appt1, appt2| 
+            appt1.start_time_military <=> appt2.start_time_military
+        end
+        y
+    end
 
 end

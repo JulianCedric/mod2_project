@@ -13,10 +13,14 @@ Rails.application.routes.draw do
   # post '/login', to: 'sessions#create'
   # delete '/logout', to: 'sessions#destroy', as: :logout 
 
+  post '/users/:id', to: "appointments#new"
+
   resources :appointments 
   resources :sessions 
 
   post '/sessions/new', to: 'sessions#create'
+
+  post '/superheros/:id', to: "appointments#new"
 
   # get 'appointments/index'
   # get 'superheros/index'

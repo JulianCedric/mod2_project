@@ -1,7 +1,8 @@
 # 2020.06.16
 
-# 
-
+# For demo: 
+  # First: Non-Premium (to show ad)
+  # Second: Premium
 
 # 2020.06.15
 
@@ -25,5 +26,5 @@
 
   <body>
     <%= yield %>
-  </body>
-</html>
+  </body> 
+</html> 
