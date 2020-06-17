@@ -1,7 +1,13 @@
+# 2020.06.17: 
+
+# https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToKgZ1s-pWWrGI5IuPcCtqrs5EeGfbEmFG31bXLSNGDK2_zawJUw&s
+
+    # Pre-2020.06.17 Code in app/views/layouts/application.html.erb: 
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SuperHire</title>
+    <title>Book a Superhero</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,15 +15,16 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   <style>
-    
+    .header {
+      background-color: deepskyblue;
+      color: white;
+      padding: 1px;
+      border: 1px solid white;
+      text-align: center;
+    }
 
     body {
-      background-image: url("https://wallup.net/wp-content/uploads/2018/03/20/373404-The_Avengers-minimalism-blue.jpg");
-      background-repeat: no-repeat;
-      background-position: right top;
-      background-size: cover;
-      margin-top: 0px;
-      color: white;
+      color: black;
     }
 
     ul {
@@ -36,7 +43,7 @@
 
     li a {
       display: block;
-      width: 100px;
+      width: 160px;
       height: 25px;
       background-color: deepskyblue;
       color: white;
@@ -56,14 +63,8 @@
     .footer {
       background-color: deepskyblue;
       color: white;
-      display: block;
-      padding: 0px;
+      padding: 1px;
       border: 1px solid white;
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
       text-align: center;
     }
     
@@ -73,7 +74,9 @@
 
   <body>
 
-
+    <div class="header"> 
+      <h1>Book a Superhero</h1>
+    </div>
 
     <div class="nav">
       <ul>
@@ -83,20 +86,23 @@
         <li><%= link_to "Search for Superheroes", superheros_path %></li>
         <!-- <li><a class="active" href='/appointments'>Appointments</a></li> -->
         <li><a href='/appointments/new'>Appointments</a></li>
-        <% if @current_user %>
-          <li class="right">Welcome <%= @current_user.name %></li>
-          <%= button_to 'Logout', "/sessions/#{@current_user.id}", method: :delete %>
-        <% else %>
-          <li class="right"><%= link_to "Sign Up", new_user_path %></li>
-          <li class="right"><%= link_to 'Login', new_session_path, method: :get %></li>
-        <% end %>
       </ul>
     </div>
 
-<%= yield %>
+    <% if @current_user %>
+    <li class="right">Welcome <%= @current_user.name %></li>
+      <%= button_to 'Logout', "/sessions/#{@current_user.id}", method: :delete %>
+    <% else %>
+    <li class="right"><%= link_to "Sign Up", new_user_path %></li>
+      <%= button_to 'Login', new_session_path, method: :get %>
+    <% end %> 
+
+
+
+    <%= yield %>
 
     <div class="footer">
-      <h1>Aim higher. <i>SUPER</i> Hire.</h1>
+      <p>Reserve Your Favorite Superheroes Here Today!</p>
     </div>
   </body>
 </html>

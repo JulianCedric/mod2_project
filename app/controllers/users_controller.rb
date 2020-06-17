@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     def index 
       @users = User.all.select do |us|
         us.is_hero == true 
-      end  
+      end   
     end
 
     def show
