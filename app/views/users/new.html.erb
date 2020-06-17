@@ -1,5 +1,11 @@
 <h1>Sign Up</h1><br>
 
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <%= error %>
+    <% end %>
+<% end %>
+
 <%= form_for @user do |f| %>
 
   <%= f.label :username %><br>
@@ -15,8 +21,10 @@
   <%= f.text_field :last_name %><br><br>
 
   <%= f.label :location %><br>
-  <%= f.select :location, ["DC", "NY", "SF"] %><br><br>
+  <%= f.select :location, ["DC", "NY"] %><br><br>
 
+  <label>Nickname/Hero Name:</label>
+  <%= f.text_field :name %><br>
   <label>Do you want a premium membership?</label><br>
   <%= f.select :is_premium, [["Yes", true], ["No", false]] %><br><br>
 
@@ -26,3 +34,19 @@
   <%= f.submit %>
 
 <% end %>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p></p>

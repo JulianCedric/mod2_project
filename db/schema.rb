@@ -10,11 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_17_070349) do
+ActiveRecord::Schema.define(version: 2020_06_17_142301) do
 
   create_table "appointments", force: :cascade do |t|
-    t.time "start_time"
-    t.time "end_time"
     t.string "location"
     t.string "description_of_service"
     t.integer "customer_id"
@@ -22,6 +20,8 @@ ActiveRecord::Schema.define(version: 2020_06_17_070349) do
     t.integer "superhero_id"
     t.string "start_ampm"
     t.string "end_ampm"
+    t.integer "end_time"
+    t.integer "start_time"
   end
 
   create_table "searches", force: :cascade do |t|

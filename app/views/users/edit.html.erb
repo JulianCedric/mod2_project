@@ -58,9 +58,25 @@
     <li><label>Do You have Good or Bad Intentions?</label>
     <%= f.select :alignment, ["Good", "Bad"] %><br></li>
     <li><label> Hourly Rate </label>
-    <%= f.text_field :price %><br></li>
-</ul>
-    <%= f.submit %>
+    <%= f.text_field :price %><br>
+    </ul>
+    <ul>
+    <li><%= f.submit %></li>
+    </ul>
 <% end %>
+<br>
+<br>
+<ul>
+<br>
+<li><%= button_to "Delete This User", user_path(@user), method: :delete %></li>
+</ul>
 
-<%= button_to "Delete This User", user_path(@user), method: :delete %>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<p></p>

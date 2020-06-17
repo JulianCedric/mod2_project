@@ -1,6 +1,7 @@
 class Appointment < ApplicationRecord
-    belongs_to :user
-    belongs_to :superhero 
+    belongs_to :customer, class_name: 'User'
+    belongs_to :hrs, class_name: 'User', optional: true
+    belongs_to :superhero, optional: true
 
     validate :no_murder, :invalid_time_frame 
 
@@ -26,13 +27,13 @@ class Appointment < ApplicationRecord
 
     def invalid_time_frame
         if self.end_time_military <= self.start_time_military
-            errors.add(:start_time, "Invalid time-frame. Search for Doctor Strange if you need further assistance.")
+            errors.add(:start_time, "invalid. Search for Doctor Strange if you need further assistance.")
         end
     end
 
     def no_murder 
-        if self.description_of_service == "Murder"
-            errors.add(:description_of_service, "Forbidden Selection. We've just alerted the Justice League of your ill intentions.")
+        if self.description_of_service == "Felonious Robbery"
+            errors.add(:description_of_service, " - Forbidden Selection! The Justice League has been alerted of your ill intentions.")
         end
     end
     

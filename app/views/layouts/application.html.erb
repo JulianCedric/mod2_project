@@ -17,15 +17,17 @@
       background-size: cover;
       margin-top: 0px;
       color: white;
+      background-attachment: scroll;
     }
 
     ul {
       list-style-type: none;
-      width: 100%;
-      left: 0;
-      right: 0;
-      overflow: hidden;
-      background-color: dodgerblue;
+    #   width: 100%
+    #    left: 0;
+    #   right: 0;
+    #   overflow: hidden;
+    #   background-color: dodgerblue;
+    #   text-align: center;
     }
     
     li {
@@ -33,9 +35,19 @@
       border-right: 1px solid white;
     }
 
+    .nav {
+      position: relative;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      width: 100%
+      list-style-type: none;
+      align-items: stretch;
+    }
+
     li a {
       display: block;
-      width: 100px;
+      width: 135px;
       height: 25px;
       background-color: dodgerblue;
       color: white;
@@ -73,20 +85,18 @@
   <body>
 
 
-
     <div class="nav">
       <ul>
-        <!-- <li><a class="active" href='/superheros'>Home</a></li> -->
-        <li><a href='/superheros'>Home</a></li>
+        <!-- <a class="active" href='/superheros'>Home</a></li> -->
+        <li class="n"><a href='/superheros'>Home</a></li>
 
-        <!-- <li><a class="active" href='/search'>Search for Superheroes</a></li> -->
-        <!-- <li><a href='/superheros'>Search for Superheroes</a></li> -->
-        <li><%= link_to "Search for Superheroes", superheros_path %></li>
-        <!-- <li><a class="active" href='/appointments'>Appointments</a></li> -->
-        <li><a href='/appointments/new'>Appointments</a></li>
+        <!-- <li class="n"><a class="active" href='/search'>Search for Superheroes</a></li> -->
+        <!-- <li class="n"><a href='/superheros'>Search for Superheroes</a></li> -->
+        <li class="n"><%= link_to "Search Superheroes", superheros_path %></li>
+        <li class="n"><a href='/users'>Search Heroes</a></li>
         <% if @current_user %>
-          <li class="right">Welcome<%= @current_user.name %></li>
-          <%= button_to 'Logout', "/sessions/#{@current_user.id}", method: :delete %>
+          <li class="right"><%= link_to @current_user.welcome, user_path(@current_user) %></li>
+          <li class="right"><%= link_to 'Logout', "/sessions/#{@current_user.id}", method: :delete %></li>
         <% else %>
           <li class="right"><%= link_to "Sign Up", new_user_path %></li>
           <li class="right"><%= link_to 'Login', new_session_path, method: :get %></li>
