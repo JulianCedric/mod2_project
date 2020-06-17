@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   post '/sessions/new', to: 'sessions#create'
 
   post '/superheros/:id', to: "appointments#new"
+  resources :searches
 
   # get 'appointments/index'
   # get 'superheros/index'

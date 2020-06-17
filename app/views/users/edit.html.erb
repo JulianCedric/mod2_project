@@ -4,6 +4,10 @@
     <h1>Edit Your User</h1>
 <% end %>
 
+<% if flash[:errors] %>
+  <h2><%= flash[:errors] %></h2>
+<% end %>
+
 <% if @user.is_hero == true && @user.intelligence == 0 && @user.strength == 0 %>
     <h2> Please Fill Out Your Hero Attributes at the Bottom of this Form:</h2>
     <h3> Note that Our Audit Team Includes Professor Charles Xavier </h3>

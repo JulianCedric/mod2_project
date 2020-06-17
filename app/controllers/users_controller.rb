@@ -2,13 +2,12 @@ class UsersController < ApplicationController
   # skip_before_action :authorized, only: [:new, :create, :edit]
 
     def index 
-      @users = User.all.select do |us|
-        us.is_hero == true 
-      end  
+      @users = User.search(params[:search])
     end
 
     def show
       @user = User.find(params[:id])
+      @appointment = Appointment.new
     end
 
     def new

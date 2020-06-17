@@ -1,0 +1,13 @@
+<h1>Here Are Your Advances Search Results:</h1>
+
+<% if @results.empty? %>
+    <h2>No Heroes Matched Your Advanced Search Requirements</h2>
+    <%= link_to "Try Another Advanced Search", new_search_path %>
+<% else %>
+    <h2>Click on the Matching Hero to Book an Appointment</h2>
+    <ul>
+    <% @results.each do |hero| %>
+      <li><%= link_to hero.name, user_path(hero) %> is available at a rate of $<%= hero.price %> per hour</li>
+        <% end %>
+    </ul>
+<% end %>

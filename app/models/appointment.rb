@@ -4,14 +4,6 @@ class Appointment < ApplicationRecord
 
     validate :no_murder, :invalid_time_frame 
 
-    def appointment
-        @appointment = Appointment.create(appointment_params)
-    end
-
-    def appointment_params
-        params.require(:appointment).permit!
-    end
-
     def start_time_military
         start_time = 0
         if self.start_ampm == "PM"
