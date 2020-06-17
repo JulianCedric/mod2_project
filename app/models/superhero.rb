@@ -31,7 +31,8 @@ class Superhero < ApplicationRecord
     end
 
     def self.search_api(hero_name)
-        name = hero_name
+        name_array = hero_name.split(" ")
+        name = name_array.join("_")
         info = URI.parse("https://superheroapi.com/api.php/10100168794062182/search/#{name}")
         response = Net::HTTP.get_response(info)
         api_hero_information = JSON.parse(response.body)
