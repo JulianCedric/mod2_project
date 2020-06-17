@@ -9,6 +9,17 @@
 </p>
 <% end %>
 
+<% if @bad_search == 1 %>
+    Your search did not return any results. Please choose another Superhero. 
+<% end %>
+
+<% if @found_superheros %>
+    <h1>Here Are Your Search Results:</h1>
+    <% @found_superheros.each do |superhero| %>
+        <%= link_to superhero.name_and_alter, superhero_path(superhero) %><br>
+    <% end %>
+<% end %>
+  
 <br>
 
 <h1>List of Searched Superheroes:</h1>

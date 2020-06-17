@@ -1,0 +1,14 @@
+<h1>Login</h1>
+<h2><%= flash[:notice] %></h2>
+<%= form_tag new_session_path do %>
+  <%= label_tag :username %>
+  <%= text_field_tag :username %>
+  <br>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+  <br>
+  <%= submit_tag 'Login' %>
+<% end %>
+
+<h2> New to Super Search? </h2>
+<h3><%= link_to "Create an Account", new_user_path %></h3>

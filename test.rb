@@ -1,3 +1,11 @@
+# 2020.06.16
+
+# For demo: 
+  # First: Non-Premium (to show ad)
+  # Second: Premium
+
+# 2020.06.15
+
 # Additional Notes: 
     # Basic Nav Bar & Footer added to app/views/layout/application.html.erb
     # Link for "Search for Superheroes" not working - no method error appears 
@@ -8,7 +16,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Book Superhero</title>
+    <title>Mod2App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -18,5 +26,5 @@
 
   <body>
     <%= yield %>
-  </body>
-</html>
+  </body> 
+</html> 

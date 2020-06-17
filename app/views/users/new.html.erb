@@ -1,0 +1,27 @@
+<h1>SIGN UP</h1>
+<%= form_for @user do |f| %>
+
+  <%= f.label :username %>
+  <%= f.text_field :username %><br>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %><br>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %><br>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %><br>
+
+  <%= f.label :location %>
+  <%= f.select :location, ["DC", "NY", "SF"] %><br>
+
+  <label>Do you want a premium membership?</label>
+  <%= f.select :is_premium, [["Yes", true], ["No", false]] %><br>
+
+   <label>Are you signing up as a hero?</label>
+   <%= f.select :is_hero, [["Yes", true], ["No", false]] %><br>
+
+  <%= f.submit %>
+
+<% end %>
