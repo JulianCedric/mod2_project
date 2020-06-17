@@ -1,26 +1,27 @@
-<h1>SIGN UP</h1>
+<h1>Sign Up</h1><br>
+
 <%= form_for @user do |f| %>
 
-  <%= f.label :username %>
-  <%= f.text_field :username %><br>
+  <%= f.label :username %><br>
+  <%= f.text_field :username %><br><br>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %><br>
+  <%= f.label :password %><br>
+  <%= f.password_field :password %><br><br>
 
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %><br>
+  <%= f.label :first_name %><br>
+  <%= f.text_field :first_name %><br><br>
 
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %><br>
+  <%= f.label :last_name %><br>
+  <%= f.text_field :last_name %><br><br>
 
-  <%= f.label :location %>
-  <%= f.select :location, ["DC", "NY", "SF"] %><br>
+  <%= f.label :location %><br>
+  <%= f.select :location, ["DC", "NY", "SF"] %><br><br>
 
-  <label>Do you want a premium membership?</label>
-  <%= f.select :is_premium, [["Yes", true], ["No", false]] %><br>
+  <label>Do you want a premium membership?</label><br>
+  <%= f.select :is_premium, [["Yes", true], ["No", false]] %><br><br>
 
-   <label>Are you signing up as a hero?</label>
-   <%= f.select :is_hero, [["Yes", true], ["No", false]] %><br>
+   <label>Are you signing up as a hero?</label><br>
+   <%= f.select :is_hero, [["Yes", true], ["No", false]] %><br><br><br>
 
   <%= f.submit %>
 
