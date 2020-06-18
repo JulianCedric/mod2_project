@@ -34,6 +34,33 @@ class User < ApplicationRecord
         y
     end
 
+    def hero_appointments_for_validation
+        x = Appointment.all.select do |appt|
+            appt.hrs_id == self.id
+        end
+    end
+
+
+
+    def total_appointments
+        self.customer_appointments + self.hero_appointments
+    end
+
+    def hours_booked
+        hours_booked = []
+        array_of_appointments = self.hero_appointments_for_validation
+        # array_of_appointments.delete(self.hero_appointments_for_validation.last)
+        array_of_appointments.each do |appointment|
+            total_time = appointment.end_time_military - appointment.start_time_military
+            index = 0 
+            while index < total_time do 
+                hours_booked << appointment.start_time_military + index
+                index += 1
+            end
+        end
+        hours_booked
+    end
+
     def self.search(search)   
         if search
             names = User.where(name: search, is_hero: "true")

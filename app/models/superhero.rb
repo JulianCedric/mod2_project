@@ -87,4 +87,19 @@ class Superhero < ApplicationRecord
         y
     end
 
+    def hours_booked
+        hours_booked = []
+        array_of_appointments = self.superhero_appointments
+        array_of_appointments.delete(self.superhero_appointments.last)
+        array_of_appointments.each do |appointment|
+            total_time = appointment.end_time_military - appointment.start_time_military
+            index = 0 
+            while index < total_time do 
+                hours_booked << appointment.start_time_military + index
+                index += 1
+            end
+        end
+        hours_booked
+    end
+
 end
