@@ -14,8 +14,8 @@
       background-image: url("https://wallup.net/wp-content/uploads/2018/03/20/373404-The_Avengers-minimalism-blue.jpg");
       background-repeat: no-repeat;
       background-position: bottom;
-      background-size: 100% 100%;
-      margin-top: 165px;
+      background-size: cover;
+      margin-top: 0px;
       margin-left: 25px;
       color: white;
       background-attachment: fixed;
@@ -28,17 +28,17 @@
     #    left: 0;
     #   right: 0;
     #   overflow: hidden;
-    #   background-color: transparent;
-    #   text-align: left;
+    #   background-color: dodgerblue;
+    #   text-align: center;
     }
     
     li {
       float: left;
-
+      border-right: 1px solid white;
     }
 
     .nav {
-      position: fixed;
+      position: relative;
       top: 0;
       display: flex;
       justify-content: center;
@@ -49,17 +49,17 @@
 
     li a {
       display: block;
-      width: 200px;
+      width: 135px;
       height: 25px;
-      background-color: transparent;
+      background-color: dodgerblue;
       color: white;
       text-align: center;
-      padding: 14px 37px;
+      padding: 14px 16px;
       text-decoration: none;
     }
 
     li a:hover {
-      background-color: transparent;
+      background-color: dodgerblue;
     }
 
     <!-- .active { -->
@@ -90,9 +90,9 @@
 
 
     <div class="nav">
-      <ul style="font-size:21px;">
+      <ul style="font-size:15px;">
         <!-- <a class="active" href='/superheros'>Home</a></li> -->
-        <li class="n"><a href='/superheros'> Home </a></li>
+        <li class="n"><a href='/superheros'>Home</a></li>
 
         <!-- <li class="n"><a class="active" href='/search'>Search for Superheroes</a></li> -->
         <!-- <li class="n"><a href='/superheros'>Search for Superheroes</a></li> -->
@@ -111,7 +111,7 @@
 <%= yield %>
 
     <div class="footer">
-      <h1 style="font-size: 21px;">Aim Higher. <i style="font-size: 28px;">SuperHire.</i></h1>
+      <h1 style="font-size: 25px;">Aim Higher. <i style="font-size: 32px;">SuperHire.</i></h1>
     </div>
   </body>
 </html>
