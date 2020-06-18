@@ -57,7 +57,7 @@ class UsersController < ApplicationController
     end
 
     def destroy
-      byebug
+
         user = User.find(params[:id])
         appt_total = []
         appt_cust = Appointment.where(customer_id: user.id)
