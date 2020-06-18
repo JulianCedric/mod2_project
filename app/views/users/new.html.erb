@@ -1,4 +1,4 @@
-<h1>Sign Up</h1><br>
+<h1 style="font-family:avenir; font-size:40px;">Sign Up</h1><br>
 
 <% if flash[:errors] %>
   <% flash[:errors].each do |error| %>
@@ -23,27 +23,21 @@
   <%= f.label :location %><br>
   <%= f.select :location, ["DC", "NY"] %><br><br>
 
-  <label>Nickname/Hero Name:</label>
-  <%= f.text_field :name %><br>
-  <label>Do you want a premium membership?</label><br>
+  <label>Do you want a Premium Membership?</label><br>
   <%= f.select :is_premium, [["Yes", true], ["No", false]] %><br><br>
 
    <label>Are you signing up as a hero?</label><br>
-   <%= f.select :is_hero, [["Yes", true], ["No", false]] %><br><br><br>
+   <%= f.select :is_hero, [["Yes", true], ["No", false]] %><br><br>
+
+   <label>Hero Name:</label><br>
+   <%= f.text_field :name %><br><br>
+ <p></p>
 
   <%= f.submit %>
 
 <% end %>
 
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Aim higher. SuperHire</title> 
+    <title>Aim Higher. SuperHire.</title> 
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <%= csp_meta_tag %> 
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -13,11 +13,13 @@
     body {
       background-image: url("https://wallup.net/wp-content/uploads/2018/03/20/373404-The_Avengers-minimalism-blue.jpg");
       background-repeat: no-repeat;
-      background-position: center;
+      background-position: bottom;
       background-size: cover;
       margin-top: 0px;
+      margin-left: 25px;
       color: white;
-      background-attachment: scroll;
+      background-attachment: fixed;
+      font-family: avenir;
     }
 
     ul {
@@ -88,7 +90,7 @@
 
 
     <div class="nav">
-      <ul>
+      <ul style="font-size:15px;">
         <!-- <a class="active" href='/superheros'>Home</a></li> -->
         <li class="n"><a href='/superheros'>Home</a></li>
 
@@ -109,7 +111,7 @@
 <%= yield %>
 
     <div class="footer">
-      <h1>Aim higher. <i>SUPER</i> Hire.</h1>
+      <h1 style="font-size: 25px;">Aim Higher. <i style="font-size: 32px;">SuperHire.</i></h1>
     </div>
   </body>
 </html>
