@@ -5,12 +5,12 @@ class SearchesController < ApplicationController
 
 
 
-    def search 
-        @search = Search.new
-    end
+    # def search 
+    #     @search = Search.new
+    # end
 
     def create
-        @search = Search.create(search_params)
+        @search = Search.create(minimum_price: params[:minimum_price], maximum_price: params[:maximum_price])
         redirect_to search_path(@search)
     end
 
@@ -21,7 +21,7 @@ class SearchesController < ApplicationController
 
     private
 
-    def search_params
-       params.require(:search).permit! 
-    end
+    # def search_params
+    #    params.require(:search).permit! 
+    # end
 end

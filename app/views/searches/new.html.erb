@@ -5,25 +5,10 @@
 <% end %>
 
 <%= form_for @search do |f| %>
-    <label>Minimum Hourly Rate</label>
-    <%= number_field_tag :minumum_price %><br>
-    <label>Maximum Hourly Rate</label>
+    <label>Minimum Hourly Rate</label><br>
+    <%= number_field_tag :minimum_price %><br>
+    <label>Maximum Hourly Rate</label><br>
     <%= number_field_tag :maximum_price %><br>
-    <h3> Note that all Ratings Below have a Maximun of 50 Unless Approved by Dr. Charles Xavier</h3>
-    <label>Minimum Intelligence Rating:</label>
-    <%= number_field_tag :minimum_intelligence %><br>
-    <label>Minimum Strength Rating</label>
-    <%= number_field_tag :minimum_strength %><br>
-    <label>Minimum Speed</label>
-    <%= number_field_tag :minimum_speed %><br>
-    <label>Minimum Durability</label>
-    <%= number_field_tag :minimum_durability %><br>
-    <label>Minimum Power</label>
-    <%= number_field_tag :minimum_power %><br>
-    <label>Minimum Combat Ability</label>
-    <%= number_field_tag :minimum_combat %><br>
-    <label> Location </label>
-    <%= f.select :location, ["","NY","DC"] %><br>
     <%= f.submit %>
 <% end %>
 

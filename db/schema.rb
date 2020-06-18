@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_17_142301) do
+ActiveRecord::Schema.define(version: 2020_06_18_125334) do
 
   create_table "appointments", force: :cascade do |t|
     t.string "location"
@@ -69,10 +69,10 @@ ActiveRecord::Schema.define(version: 2020_06_17_142301) do
     t.integer "durability", default: 0
     t.integer "power", default: 0
     t.integer "combat", default: 0
-    t.integer "alignment"
     t.string "img_url"
     t.integer "price", default: 0
     t.boolean "is_premium"
+    t.string "alignment"
   end
 
 end

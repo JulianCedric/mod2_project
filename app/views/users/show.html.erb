@@ -28,7 +28,7 @@
 
 
 <% if @user.is_hero == true %>
-
+    <p></p>
     Hourly Rate: <%= @user.price %><br>
 
     <h2>Ability Ratings </h2>
@@ -38,11 +38,12 @@
         Durability: <%= @user.durability %><br>
         Power: <%= @user.power %><br>
         Combat: <%= @user.combat %><br>
-        <% if @user.alignment == 0 %>
+       
+        <% if @user.alignment == nil %>
             The Light Side or the Dark, this Hero is currently undecided.
         <% else %>
             This Hero is currently listed as a <%= @user.alignment %> hero.<br>
-        <% end %>
+        <%end%>
 <% end %>
 
 <h4>If You are <%= @user.name %> Here is a <%= link_to 'Link to Edit Your Profile', edit_user_path(@user) %></h4>
@@ -105,7 +106,7 @@
 
 <% end %>
 
-
+<p></p>
 <% if @user.img_url != nil %>
 <%= image_tag("#{@user.img_url}") %>
 <% end %> 
