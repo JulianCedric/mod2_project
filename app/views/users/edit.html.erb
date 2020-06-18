@@ -1,5 +1,5 @@
 <% if @user.is_hero %>
-    <h1>Edit Your Hero</h1>
+    <h1 style="font-family:avenir; font-size:40px;">Edit Your Hero</h1>
 <% else %>
     <h1>Edit Your User</h1>
 <% end %>
@@ -9,63 +9,68 @@
 <% end %>
 
 <% if @user.is_hero == true && @user.intelligence == 0 && @user.strength == 0 && @user.durability %>
-    <h2> Please Fill Out Your Hero Attributes at the Bottom of this Form:</h2>
-    <h3> Note that Our Audit Team Includes Professor Charles Xavier </h3>
-    <h3> Any False Claims about Your Abilities Will be Treated as Fraud </h3> 
+    <h2> Please fill out your Hero Attributes at the bottom of this form:</h2>
+    <h4>   Note: Our Audit Team includes Professor Charles Xavier. </h4>
+    <h4><i>   ANY false claims about your abilities will be treated as FRAUD. </i></h4> 
     <%= image_tag("https://www.superherodb.com/pictures2/portraits/10/100/113.jpg") %>
+    <p></p> 
 <% end %>
 
 <%= form_for @user do |f| %>
-  <%= f.label :username %>
+  <%= f.label :username %><br>
   <%= f.text_field :username %><br>
-  <label>Password</label>
-  <%= f.password_field :password %><br>
-  <%= f.label :first_name %>
+  <label>Password</label><br>
+  <%= f.password_field :password %><br><br>
+  <%= f.label :first_name %><br>
   <%= f.text_field :first_name %><br>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %><br>
-  <%= f.label :location %>
+  <%= f.label :last_name %><br>
+  <%= f.text_field :last_name %><br><br>
+  <%= f.label :location %><br>
   <%= f.select :location, ["DC", "NY", "SF"] %><br>
-  <label>Do you want a premium membership?</label>
+  <label>Do you want a Premium Membership?</label><br>
   <%= f.select :is_premium, [["Yes", true], ["No", false]] %><br>
-   <label>Are you signing up as a hero?</label>
+   <label>Are you signing up as a Hero?</label><br>
    <%= f.select :is_hero, [["Yes", true], ["No", false]] %><br>
 
         
     <h2>For Heroes ONLY:</h2>    
     <p>If you're not a hero, skip to 'Update User' below.</p>
     <h2>Enter Hero Information Below:</h2> 
-    <label>Hero Name</label>
+    <label>Hero Name:</label><br>
     <%= f.text_field :name %><br>
-    <h4>Hero Attritube Ratings:</h4>
-    <%= f.label :intelligence %>
+    <h3>Hero Attritube Ratings:</h3>
+    <%= f.label :intelligence %><br>
     <%= f.text_field :intelligence %><br>
-    <div> <%= f.label :strength %>
-    <%= f.text_field :strength %><br></div>    <%= f.label :speed %>
+    <div> <%= f.label :strength %><br>
+    <%= f.text_field :strength %><br></div>    
+    <%= f.label :speed %><br>
     <%= f.text_field :speed %><br>
-    <%= f.label :durability %>
+    <%= f.label :durability %><br>
     <%= f.text_field :durability %><br>
-    <%= f.label :power %>
+    <%= f.label :power %><br>
     <%= f.text_field :power %><br>
-    <%= f.label :combat %>
+    <%= f.label :combat %><br>
     <%= f.text_field :combat %><br>
 
 
-    <label> Photo URL (optional) </label>
+    <label> Photo URL (optional) </label><br>
     <%= f.text_field :img_url %><br>
-    <label>Do You have Good or Bad Intentions?</label>
+    <label>Do you have Good or Bad Intentions?</label><br>
     <%= f.select :alignment, ["Good", "Bad"] %><br>
  
 
-    <label> Hourly Rate </label>
+    <label> Hourly Rate </label><br>
     <%= f.text_field :price %><br>
     <div>
+        <p></p>
     <%= f.submit %>
-    </div> 
+    </div>
     
 <% end %>
 
 <div>
+    <p></p>
+    <p></p><br>
 <%= button_to "Delete This User", user_path(@user), method: :delete %>
 </div>
 
@@ -75,6 +80,4 @@
 <br>
 <br>
 <br>
-<br>
-<br> 
 <p></p>
