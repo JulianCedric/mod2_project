@@ -4,6 +4,7 @@ class Appointment < ApplicationRecord
     belongs_to :superhero, optional: true
 
     validate :no_murder, :invalid_time_frame
+    validate :cant_book_self
     # validate :no_double_bookings
 
     def start_time_military
@@ -54,7 +55,13 @@ class Appointment < ApplicationRecord
 
     def no_murder 
         if self.description_of_service == "Felonious Robbery"
-            errors.add(:description_of_service, " - Forbidden Selection! The Justice League has been alerted of your ill intentions.")
+            errors.add(:description_of_service, " - Forbidden Selection! The Justice League\n has been alerted of your ill intentions.")
+        end
+    end
+
+    def cant_book_self
+        if self.hrs_id == self.customer_id
+            errors.add(:customer_id, " - Invalid Entry. You can't book an Appointment with yourself.")
         end
     end
 

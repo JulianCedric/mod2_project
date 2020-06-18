@@ -11,8 +11,9 @@ class User < ApplicationRecord
     validates :username, presence: true 
     validates :username, uniqueness: true 
     validates :intelligence, :strength, :speed, :durability, :power, :combat, numericality: { less_than: 50 }
-
+    validates :price, exclusion: { in: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], message: "Invalid. Unless Volunteering, the Hero Must Make Mimimum Wage for Services Rendered." }
     has_secure_password
+ 
 
     def customer_appointments
         x = Appointment.all.select do |appt|

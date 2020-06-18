@@ -6,15 +6,21 @@
     <%= submit_tag ("Search") %>
 </p>
 <% end %>
+<h2><%= link_to "Search by Price", new_search_path %></h2>
 
 <br>
 
-<% if @users %>
+<% if @users == User.where(is_hero: "true") %>
+    <h1>There are currently no Heroes listed with that name.</h1>
+    <%= link_to "Search Superheroes", superheros_path %> 
     <h1>List of All Available Heroes:</h1>
     <% @users.each do |us| %>
-        <%= link_to us.name, user_path(us) %><br> 
-    <% end %> 
+    <%= link_to us.name, user_path(us) %><br>
+    <% end %>
 <% else %> 
-    <h1>There are currently no Heroes listed.</h1>
-    <%= link_to "Search Superheroes", superheros_path %>
+    <h1>List of Matching Hero by Name:</h1>
+    <% @users.each do |us| %>
+    <%= link_to us.name, user_path(us) %><br>
+    <% end %>
 <% end %>
+

@@ -5,7 +5,10 @@
 <% end %> 
 
 <% if flash[:errors] %>
-  <h2><%= flash[:errors] %></h2>
+    <h2 style='color: red;'>Invalid Appointment Entered</h2>
+    <% flash[:errors].each do |error| %>
+        <h2 style='color: red;'><%=error%></h2>
+    <%end%>
 <% end %>
 
 
@@ -17,6 +20,7 @@
     <h3>Hero Name: <%= @user.name %></h3>
 <% end %>
 <h3>Location: <%= @user.location %></h3>
+
 
 <% if @current_user.is_premium == false %>
     <% if session[:view_count] % 2 == 1 %>
@@ -95,7 +99,7 @@
         <%= f.select :end_ampm, ["AM", "PM"] %><br>
 
         <%= f.label :description_of_service %>
-        <%= f.select :description_of_service, ["Protection", "Entertainment", "Chores", "Travel", "Murder"] %>
+        <%= f.select :description_of_service, ["Protection", "Entertainment", "Chores", "Travel", "Felonious Robbery"] %>
 
         <%= f.hidden_field :customer_id, :value => @current_user.id %>
         <%= f.hidden_field :hrs_id, :value => @user.id %> 

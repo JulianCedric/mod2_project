@@ -5,12 +5,16 @@
 <% end %>
 
 <% if flash[:errors] %>
-  <h2><%= flash[:errors] %></h2>
+    <h1 style='color: salmon;'> Invalid Entry: </h1>
+    <% flash[:errors].each do |error| %>
+        <h3 style='color: salmon;'><b><%= error %></b> </h3>
+    <% end %>
 <% end %>
 
 <% if @user.is_hero == true && @user.intelligence == 0 && @user.strength == 0 && @user.durability %>
     <h2> Please fill out your Hero Attributes at the bottom of this form:</h2>
     <h4>   Note: Our Audit Team includes Professor Charles Xavier. </h4>
+    <h4> Any ability ratings 50 and above must be approved by the Xmen.</h4>
     <h4><i>   ANY false claims about your abilities will be treated as FRAUD. </i></h4> 
     <%= image_tag("https://www.superherodb.com/pictures2/portraits/10/100/113.jpg") %>
     <p></p> 

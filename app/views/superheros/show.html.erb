@@ -1,5 +1,12 @@
 <h1>Superhero Page</h1>
 
+<% if flash[:errors] %>
+    <h1 style='color: salmon;'> Invalid Entry: </h1>
+    <% flash[:errors].each do |error| %>
+        <h3 style='color: salmon;'><b><%= error %></b> </h3>
+    <% end %>
+<% end %>
+
 Name: <%= @superhero.name %><br>
 Alias: <%= @superhero.alter_ego %><br>
 Hourly Rate: <%= @superhero.price %><br>
@@ -12,12 +19,6 @@ Power: <%= @superhero.power %><br>
 Combat: <%= @superhero.combat %><br>
 This Superhero is currently listed as a <%= @superhero.alignment %> superhero.<br>
 <p></p>
-<% if flash[:errors] %>
-    <h1> Invalid Entry: </h1>
-    <% flash[:errors].each do |error| %>
-        <h3> <%= error %> </h3>
-    <% end %>
-<% end %>
 
 <% if @current_user.is_premium == false %>
     <% if session[:view_count] % 2 == 1 %>

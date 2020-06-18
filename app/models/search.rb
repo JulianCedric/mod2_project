@@ -5,11 +5,21 @@ class Search < ApplicationRecord
 
         if self.minimum_price != nil && self.maximum_price != nil
             # User.where("price > #{self.minimum_price}", is_hero: "true").and(User.("price < #{self.maximum_price}", is_hero: "true"))
-          User.where("price >= #{self.minimum_price} and price <= #{self.maximum_price}", is_hero: "true")
+          initial_results = User.where("price >= #{self.minimum_price} and price <= #{self.maximum_price}").order(:price)
+            initial_results.select do |user|
+                user.is_hero == true
+            end
+        
         elsif self.minimum_price
-            User.where("price >= #{self.minimum_price}", is_hero: "true")
+            initial_results = User.where("price >= #{self.minimum_price}").order(:price)
+            initial_results.select do |user|
+                user.is_hero == true
+            end
         elsif self.maximum_price
-            User.where("price <= #{self.maximum_price}", is_hero: "true")
+            initial_results = User.where("price <= #{self.maximum_price}").order(:price)
+            initial_results.select do |user|
+                user.is_hero == true
+            end
         else
             nil
         end
