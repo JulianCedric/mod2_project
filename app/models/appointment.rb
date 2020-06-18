@@ -4,7 +4,7 @@ class Appointment < ApplicationRecord
     belongs_to :superhero, optional: true
 
     validate :no_murder, :invalid_time_frame
-    validate :no_double_bookings
+    # validate :no_double_bookings
 
     def start_time_military
         start_time = 0
@@ -58,27 +58,27 @@ class Appointment < ApplicationRecord
         end
     end
 
-    def no_double_bookings
-        if self.superhero_id
-            provider = Superhero.find_by(id: self.superhero_id)
-        elsif self.hrs_id
-            provider = User.find_by(id: self.hrs_id)
-        end
-        provider_booked = false
-        provider.hours_booked.each do |hour|
-            self.requested_hours_booked.each do |rhour|
-                if hour == rhour
-                    provider_booked = true
-                end
-            end
-        end
-        byebug
+    # def no_double_bookings
+    #     if self.superhero_id
+    #         provider = Superhero.find_by(id: self.superhero_id)
+    #     elsif self.hrs_id
+    #         provider = User.find_by(id: self.hrs_id)
+    #     end
+    #     provider_booked = false
+    #     provider.hours_booked.each do |hour|
+    #         self.requested_hours_booked.each do |rhour|
+    #             if hour == rhour
+    #                 provider_booked = true
+    #             end
+    #         end
+    #     end
+    #     byebug
 
-        if provider_booked == true
-            errors.add(:start_time, "invalid. Your requested Hero is already booked at this given time frame.")
-        end
+    #     if provider_booked == true
+    #         errors.add(:start_time, "invalid. Your requested Hero is already booked at this given time frame.")
+    #     end
 
-    end
+    # end
 
 
 end
