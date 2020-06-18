@@ -19,10 +19,10 @@
     <% @found_superheros.each do |superhero| %>
         <%= link_to superhero.name_and_alter, superhero_path(superhero) %><br>
     <% end %>
+    <p></p>
+        Youtube Search for: <%= link_to @found_superheros[0].name, "https://www.youtube.com/results?search_query=#{@found_superheros[0].name}"%>
 <% end %>
-<% if @current_user.is_premium == false %>
-<iframe width="731" height="489" src="https://www.youtube.com/embed/8rwPovyR9HY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<% end %>   
+
 
 
 <br>

@@ -8,6 +8,11 @@ class UsersController < ApplicationController
     def show
       @user = User.find(params[:id])
       @appointment = Appointment.new
+      if session[:view_count]
+        session[:view_count] = session[:view_count] + 1 
+      else 
+        session[:view_count] = 1
+      end 
     end
 
     def new
@@ -58,8 +63,8 @@ class UsersController < ApplicationController
         appt_cust = Appointment.where(customer_id: user.id)
         appt_hrs = Appointment.where(hrs_id: user.id)
         appt_total = appt_cust + appt_hrs
-        appt_total.each do |apartment| 
-          apartment.destroy
+        appt_total.each do |appointment| 
+          appointment.destroy
         end
         user.destroy
         redirect_to new_session_path

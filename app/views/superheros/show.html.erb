@@ -11,12 +11,20 @@ Durability: <%= @superhero.durability %><br>
 Power: <%= @superhero.power %><br>
 Combat: <%= @superhero.combat %><br>
 This Superhero is currently listed as a <%= @superhero.alignment %> superhero.<br>
-
+<p></p>
 <% if flash[:errors] %>
     <h1> Invalid Entry: </h1>
     <% flash[:errors].each do |error| %>
         <h3> <%= error %> </h3>
     <% end %>
+<% end %>
+
+<% if @current_user.is_premium == false %>
+    <% if session[:view_count] % 2 == 1 %>
+    <iframe width="731" height="489" src="https://www.youtube.com/embed/8rwPovyR9HY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <% else %>
+    <iframe width="821" height="462" src="https://www.youtube.com/embed/UiyDmqO59QE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <% end %> 
 <% end %>
 
 <% if @superhero.appointments.any? %>  
