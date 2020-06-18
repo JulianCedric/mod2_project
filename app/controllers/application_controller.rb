@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
         if @current_user 
         else
         flash[:notice] = "You must log into your account to see this page"
-        redirect_to login_path 
+        redirect_to new_session_path
       end
     end
 

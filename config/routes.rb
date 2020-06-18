@@ -23,6 +23,13 @@ Rails.application.routes.draw do
   post '/superheros/:id', to: "appointments#new"
   resources :searches
 
+  # get '/superheros/:id', to: 'users#client', as: 'client'
+  # get '/users/:id', to: 'users#heroes', as 'hero'
+  # get '/appointments/new', to: 'users#customer', as 'customer'
+  # get '/appointments/new', to: 'users#customer', as 'customer'
+
+
+
   # get 'appointments/index'
   # get 'superheros/index'
   # get 'users/index'

@@ -10,16 +10,21 @@
 <% end %>
 
 <% if @bad_search == 1 %>
-    Your search did not return any results. Please choose another Superhero. 
+    <h2>Your search did not return any results.</h2> 
+    <h2>Please choose another Superhero.</h2> 
 <% end %>
 
-<% if @found_superheros %>
+<% if @bad_search == 0 %>
     <h1>Here Are Your Search Results:</h1>
     <% @found_superheros.each do |superhero| %>
         <%= link_to superhero.name_and_alter, superhero_path(superhero) %><br>
     <% end %>
+    <p></p>
+        Youtube Search for: <%= link_to @found_superheros[0].name, "https://www.youtube.com/results?search_query=#{@found_superheros[0].name}"%>
 <% end %>
-  
+
+
+
 <br>
 
 <h1>List of Searched Superheroes:</h1>

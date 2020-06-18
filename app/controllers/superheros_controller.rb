@@ -8,6 +8,11 @@ class SuperherosController < ApplicationController
   def show
     @superhero = Superhero.find(params[:id]) 
     @appointment = Appointment.new 
+    if session[:view_count]
+      session[:view_count] = session[:view_count] + 1 
+    else 
+      session[:view_count] = 1
+    end 
   end
 
   def search

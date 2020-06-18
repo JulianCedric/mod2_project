@@ -1,15 +1,14 @@
 <h1>Search by Hero Name:</h1>
 
-<%= form_tag users_path, method: :post do %>
+<%= form_tag(users_path, method: :get) do %>
 <p> 
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search" %>
+    <%= text_field_tag(:search, params[:search]) %>
+    <%= submit_tag ("Search") %>
 </p>
 <% end %>
-<%= link_to "Try An Advanced Search", new_search_path %>
 
 
-<% if @users.any? %>
+<% if @users %>
     <h1>List of All Available Heroes:</h1>
     <% @users.each do |us| %>
         <%= link_to us.name, user_path(us) %><br> 

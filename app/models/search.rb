@@ -1,38 +1,37 @@
 class Search < ApplicationRecord
 
     def search_heroes
-        heroes = User.all.select do |user|
-            user.is_hero == true
+        heroes = []
+   
+        if self.minimum_price != nil
+            heroes << User.where(["price > ?", minimum_price], is_hero: "true")
         end
-
-        if minimum_price.present?
-            heroes = heroes.where(["price > ?", minimum_price])
+        if self.maximum_price != nil
+            heroes << User.where(["price < ?", maximum_price], is_hero: "true")
         end
-        if maximum_price.present?
-            heroes = heroes.where(["price < ?", maximum_price])
+        if self.minimum_intelligence != nil
+            heroes << User.where(["intelligence > ?", minimum_intelligence], is_hero: "true")
         end
-        if :minimum_intelligence present?
-            heroes = heroes.where(["intelligence > ?", minimum_intelligence])
+        if self.minimum_strength != nil
+            heroes << User.where(["strength > ?", minimum_strength], is_hero: "true")
         end
-        if minimum_strength.present?
-            heroes = heroes.where(["strength > ?", minimum_strength])
+        if self.minimum_speed != nil
+            heroes << User.where(["speed > ?", minimum_speed], is_hero: "true")
         end
-        if minimum_speed.present?
-            heroes = heroes.where(["speed > ?", minimum_speed])
+        if self.minimum_durability != nil
+            heroes << User.where(["durability > ?", minimum_durability], is_hero: "true")
         end
-        if minimum_durability.present?
-            heroes = heroes.where(["durability > ?", minimum_durability)
+        if self.minimum_power != nil
+            heroes << User.where(["power > ?", minimum_power], is_hero: "true")
         end
-        if minimum_power.present?
-            heroes = heroes.where(["power > ?", minimum_power])
+        if self.minimum_combat != nil
+            heroes << User.where(["price > ?", minimum_combat], is_hero: "true")
         end
-        if minimum_combat.present?
-            heroes = heroes.where(["price > ?", minimum_combat])
+        if self.location != ""
+            heroes << User.where(["location LIKE ?", location], is_hero: "true")
         end
-        if location.present?
-            heroes = heroes.where(["location LIKE ?", search_location])
-        end
-        heroes
+        heroes.uniq
+     
     end
 
 end

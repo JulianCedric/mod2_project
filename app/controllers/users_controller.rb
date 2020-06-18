@@ -1,13 +1,18 @@
 class UsersController < ApplicationController
   skip_before_action :authorized, only: [:new, :create, :show]
 
-    def index 
+    def index
       @users = User.search(params[:search])
     end
 
     def show
       @user = User.find(params[:id])
       @appointment = Appointment.new
+      if session[:view_count]
+        session[:view_count] = session[:view_count] + 1 
+      else 
+        session[:view_count] = 1
+      end 
     end
 
     def new
@@ -31,9 +36,15 @@ class UsersController < ApplicationController
 
     def edit
       @user = User.find(params[:id]) 
+      if @user == @current_user
+        render :edit 
+      else
+        flash[:errors] = "#{@user.name} can only edit this profile page" 
+        redirect_to user_path(@user)
+      end
     end
 
-    def upgrade
+    def update
       user = User.find(params[:id])
       user.update(user_params)
       if user.valid?
@@ -46,12 +57,24 @@ class UsersController < ApplicationController
     end
 
     def destroy
+
         user = User.find(params[:id])
+        appt_total = []
+        appt_cust = Appointment.where(customer_id: user.id)
+        appt_hrs = Appointment.where(hrs_id: user.id)
+        appt_total = appt_cust + appt_hrs
+        appt_total.each do |appointment| 
+          appointment.destroy
+        end
         user.destroy
-        redirect_to login_path
+        redirect_to new_session_path
     end
     private
     def user_params
       params.require(:user).permit!
     end
+
+    # def search_params
+    #   params.require(:search).permit!
+    # end
 end
